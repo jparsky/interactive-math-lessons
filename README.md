@@ -1,16 +1,49 @@
-# React + Vite
+# Interactive Math Learning Samples
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Two interactive math learning samples designed for visual, exploratory learning.
 
-Currently, two official plugins are available:
+## Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://jparsky.github.io/interactive-math-lessons/
 
-## React Compiler
+## Lessons
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Taylor Approximation Lesson
 
-## Expanding the ESLint configuration
+An interactive lesson that helps learners explore how Taylor polynomials approximate familiar functions including `sin(x)`, `cos(x)`, `e^x`, and `1/(1-x)`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Features:
+- Function switching
+- Dynamic polynomial approximation display
+- Superscript and stacked-fraction math formatting
+- Interactive graph comparison
+- Error feedback
+- Guided conceptual checks
+
+### Fourier Heat Flow Explorer
+
+An interactive lesson based on Fourier's steady-state heat equation. Learners explore how a Fourier series reconstructs a temperature field across a plate with a heated edge and cold side boundaries.
+
+Features:
+- Heat map visualization
+- Draggable heat probe
+- Interactive parallelepiped model
+- Fourier term slider
+- Celsius, Kelvin, and Fahrenheit display
+- Boundary condition explanations
+- PDE derivation sketch
+
+## Built With
+
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Recharts
+- lucide-react
+
+## Local Development
+
+```bash
+npm install
+npm run dev
