@@ -1,6 +1,7 @@
 import { useState } from "react";
-import TaylorLesson from "./lessons/TaylorLesson";
-import FourierHeatFlowExplorer from "./lessons/FourierHeatFlowExplorer";
+import TaylorLesson from "./lessons/TaylorLesson.jsx";
+import FourierHeatFlowExplorer from "./lessons/FourierHeatFlowExplorer.jsx";
+import DiceProbabilityLesson from "./lessons/DiceProbabilityLesson.jsx";
 
 export default function App() {
   const [activeLesson, setActiveLesson] = useState("taylor");
@@ -18,7 +19,7 @@ export default function App() {
             </h1>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setActiveLesson("taylor")}
               className={`rounded-xl px-4 py-2 text-sm font-bold transition ${
@@ -27,7 +28,7 @@ export default function App() {
                   : "bg-slate-100 text-slate-800 hover:bg-slate-200"
               }`}
             >
-              Taylor Approximation
+              Taylor
             </button>
 
             <button
@@ -38,13 +39,26 @@ export default function App() {
                   : "bg-slate-100 text-slate-800 hover:bg-slate-200"
               }`}
             >
-              Fourier Heat Flow
+              Fourier
+            </button>
+
+            <button
+              onClick={() => setActiveLesson("dice")}
+              className={`rounded-xl px-4 py-2 text-sm font-bold transition ${
+                activeLesson === "dice"
+                  ? "bg-slate-950 text-white"
+                  : "bg-slate-100 text-slate-800 hover:bg-slate-200"
+              }`}
+            >
+              Probability Quest
             </button>
           </div>
         </div>
       </nav>
 
-      {activeLesson === "taylor" ? <TaylorLesson /> : <FourierHeatFlowExplorer />}
+      {activeLesson === "taylor" && <TaylorLesson />}
+      {activeLesson === "fourier" && <FourierHeatFlowExplorer />}
+      {activeLesson === "dice" && <DiceProbabilityLesson />}
     </div>
   );
 }
