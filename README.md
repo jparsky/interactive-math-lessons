@@ -143,6 +143,7 @@ src/
 
 Planned or possible future additions include:
 
+* A full choose-your-own-adventure style game exploring more advanced probability and statistics
 * More lessons covering statistics, calculus, and linear algebra
 * Additional graph-based visualizations
 * More advanced probability simulations
