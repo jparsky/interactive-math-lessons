@@ -1,10 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TaylorLesson from "./lessons/TaylorLesson.jsx";
 import FourierHeatFlowExplorer from "./lessons/FourierHeatFlowExplorer.jsx";
 import DiceProbabilityLesson from "./lessons/DiceProbabilityLesson.jsx";
 
+function getInitialLesson() {
+  const hash = window.location.hash.replace("#", "");
+
+  if (hash === "probability") return "dice";
+  if (hash === "dice") return "dice";
+  if (hash === "fourier") return "fourier";
+  if (hash === "taylor") return "taylor";
+
+  return "taylor";
+}
+
+function updateHashForLesson(lesson) {
+  if (lesson === "dice") {
+    window.location.hash = "probability";
+    return;
+  }
+
+  window.location.hash = lesson;
+}
+
 export default function App() {
-  const [activeLesson, setActiveLesson] = useState("taylor");
+  const [activeLesson, setActiveLesson] = useState(getInitialLesson);
+
+  useEffect(() => {
+    function handleHashChange() {
+      setActiveLesson(getInitialLesson());
+    }
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
+  function changeLesson(lesson) {
+    setActiveLesson(lesson);
+    updateHashForLesson(lesson);
+  }
 
   return (
     <div>
@@ -21,7 +58,7 @@ export default function App() {
 
           <div className="flex flex-wrap gap-2">
             <button
-              onClick={() => setActiveLesson("taylor")}
+              onClick={() => changeLesson("taylor")}
               className={`rounded-xl px-4 py-2 text-sm font-bold transition ${
                 activeLesson === "taylor"
                   ? "bg-slate-950 text-white"
@@ -32,7 +69,7 @@ export default function App() {
             </button>
 
             <button
-              onClick={() => setActiveLesson("fourier")}
+              onClick={() => changeLesson("fourier")}
               className={`rounded-xl px-4 py-2 text-sm font-bold transition ${
                 activeLesson === "fourier"
                   ? "bg-slate-950 text-white"
@@ -43,7 +80,7 @@ export default function App() {
             </button>
 
             <button
-              onClick={() => setActiveLesson("dice")}
+              onClick={() => changeLesson("dice")}
               className={`rounded-xl px-4 py-2 text-sm font-bold transition ${
                 activeLesson === "dice"
                   ? "bg-slate-950 text-white"
