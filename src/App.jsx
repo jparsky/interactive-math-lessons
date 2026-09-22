@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import TaylorLesson from "./lessons/TaylorLesson.jsx";
 import FourierHeatFlowExplorer from "./lessons/FourierHeatFlowExplorer.jsx";
 import DiceProbabilityLesson from "./lessons/DiceProbabilityLesson.jsx";
